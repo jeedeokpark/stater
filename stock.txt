@@ -1,0 +1,24 @@
+public class Stock{
+	public static void main(String[] args) {
+		int[] stock = new int[10];
+		Random ran = new Random();
+		for(int i=0; i< stock.length;i++) {
+			stock[i] = ran.nextInt(100);
+			System.out.Println("day"+(i+1)+" : "+ stock[i] + "원");
+		}
+
+		int max = -999999999;
+		int min_index = 0;
+		int max_index = 0;
+		
+		for(int i=0; i< stock.length; i++) {
+			for(int j = i+1; j < stock.length; j++) {
+				if(max < (stock[j] - stock[i])) {
+					max = stock[j] - stock[i];
+					min_index = i;
+					max_index = j;
+				}
+			}
+		}
+		System.out.println( stock[min_index]+"에 산다."+ stock[max_index]+ "원에 판다.");
+}
